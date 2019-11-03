@@ -16,7 +16,7 @@ const move = room => () => {
 
 const tryHB = () => {
     if (state.inventory.includes('key')) {
-        move('hb');
+        move('hb')();
     } else {
         alert('You try Dr. HB\'s door, but it\'s locked. You\'ll have to find a key.');
     }
@@ -24,7 +24,7 @@ const tryHB = () => {
 
 const try2110 = () => {
     if (state.inventory.includes('buzzcard')) {
-        move('2110');
+        move('2110')();
     } else {
         alert('You try the door, but it\'s locked. There\'s a buzzcard reader by the door.');
     }
@@ -62,6 +62,25 @@ const rooms = {
                 state.dead = true;
             }
         }
+    },
+    '2110': {
+        'flavor': 'Inside the 2110 lab is... Brandon Whitehead? Didn\'t he graduate?\n\n"I challenge you to a game." You can accept (a) or reject (r).',
+        'items': [],
+        'commands': {
+            'a': () => {
+                if (state.inventory.includes('chessboard')) {
+                    alert('You challenge Brandon to a game of chess.');
+                    alert('The game is going well, until...');
+                    alert('Brandon starts chanting.  B R A N D O N A C C I !');
+                    alert('He vanishes. Now that you are unblocked, you proceed to the 1332 TA lab.');
+                    move('1332');
+                } else {
+                    alert('"What did you bring for me to play?" asks Brandon. You don\'t have anything to challenge him with, though...\n\nYou leave the lab the way you came.');
+                    move('hallway');
+                }
+            },
+            'r': move('hallway'),
+        },
     },
     '1331': {
         'flavor': 'You are in the 1331 TA lab. You can leave (b), or move right into the 2200 lab (r).',
