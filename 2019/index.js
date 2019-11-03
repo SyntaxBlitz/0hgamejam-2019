@@ -8,6 +8,7 @@ const itemFlavor = {
     'printer': 'With great difficulty, you manage to lift the printer. You are now carrying... a printer.',
     'buzzcard': 'The buzzcard belongs to one "Austin J. Adams". You\'re not quite sure who that is, but it seems familiar, somehow...',
     'chessboard': 'You\'ve never really been sure why there\'s a chessboard in this room. You have definitely never seen anyone playing chess here. Still, maybe it\'ll come in handy. You pack up the chessboard and take it with you.',
+    'key': 'You pick up a brass key. It should get you into an office somewhere around this building.',
 };
 
 const move = room => () => {
@@ -73,10 +74,10 @@ const rooms = {
                     alert('The game is going well, until...');
                     alert('Brandon starts chanting.  B R A N D O N A C C I !');
                     alert('He vanishes. Now that you are unblocked, you proceed to the 1332 TA lab.');
-                    move('1332');
+                    move('1332')();
                 } else {
                     alert('"What did you bring for me to play?" asks Brandon. You don\'t have anything to challenge him with, though...\n\nYou leave the lab the way you came.');
-                    move('hallway');
+                    move('hallway')();
                 }
             },
             'r': move('hallway'),
