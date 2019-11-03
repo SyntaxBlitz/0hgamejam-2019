@@ -97,12 +97,11 @@ const rooms = {
         'commands': {
             'a': move('hallway'),
             'b': move('2110'),
-            // 'take key': takeKey,
-            // 'grab key': takeKey,
         },
     },
     'hb': {
         'flavor': 'You are inside Dr. HB\'s office. She\'s left her computer on, unlocked. You can leave the room (b) or use the computer (computer).',
+        'items': [],
         'commands': {
             'b': move('hallway'),
             'computer': () => {
