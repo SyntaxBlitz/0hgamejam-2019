@@ -1,4 +1,4 @@
-window.onload = () {
+window.setTimeout(() => {
 
     const state = {
         room: 'commons',
@@ -176,4 +176,4 @@ window.onload = () {
         alert('...what?');
     }
 
-};
+}, 100);
